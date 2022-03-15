@@ -1,21 +1,31 @@
 function WordsWidget() {
-  function getWords(words) {
-    var passedWord = words.split(' ');
-    let longWords = passedWord.filter((word) => {
-      return word.length > 4;
-    });
+  function getLongestWords(sentence) {
+    //console.log(sentence);
+    let words = sentence.split(' ');
+    console.log(words);
 
-    // let longWords = [];
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      console.log(word);
+      if (word.length > 4) {
+        let highlitedSentence = sentence.replace(
+          word,
+          `<mark> ${word} </mark>`
+        );
+        console.log(highlitedSentence);
+        sentence = highlitedSentence;
+      }
+    }
+    return sentence;
+  }
 
-    // for (var i = 0; i < words.length; i++) {
-    //   if (words[i].length > 4) {
-    //     longWords.push(words[i]);
-    //   }
-    // }
-    return longWords;
+  function getLengthOfWords(sentence) {
+    let lengthOfSentence = sentence.split(' ').length;
+    return lengthOfSentence;
   }
 
   return {
-    getWords,
+    getLongestWords,
+    getLengthOfWords,
   };
 }
