@@ -1,0 +1,17 @@
+body {
+    background-color: #E1BBC9;
+}
+
+.container{
+    /* display: flex;
+    padding: 10%;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem; */
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
