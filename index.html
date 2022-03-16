@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="row">
-        <div style="text-align: center" class="col-12">
+        <div style="text-align: center" class="col-6">
           <input
             type="text"
             class="addSentence"
@@ -26,17 +26,30 @@
           />
           <button type="button" class="add-btn">Add</button>
         </div>
+        <div style="text-align: center" class="col-2">
+          <button type="button" class="counter">Counter</button>
+        </div>
+        <div class="col-4">
+          <input
+            type="checkbox"
+            id="shortWords"
+            name="shortWords"
+            value="short"
+          />
+          <label for="shortWords"> Hide short words</label><br />
+          <input type="checkbox" id="showAll" name="showAll" value="all" />
+          <label for="showAll"> show all words</label>
+        </div>
       </div>
-      <br />
       <div class="row">
         <div style="text-align: center" class="col-12">
-          <span class="sentence">There are: </span>
+          <span class="displayWords"></span>
         </div>
       </div>
       <br />
       <div class="row">
         <div style="text-align: center" class="col-12">
-          <span class="displayWords"></span>
+          <span class="sentence"></span>
         </div>
       </div>
     </div>
