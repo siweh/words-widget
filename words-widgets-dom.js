@@ -1,8 +1,9 @@
-let inputElem = document.querySelector('.addSentence');
+let inputElem = document.querySelector('.analyze');
 let displaySentence = document.querySelector('.displayWords');
 let lengthOfWords = document.querySelector('.sentence');
-let counterBtn = document.querySelector('.counter');
-let addBtn = document.querySelector('.add-btn');
+let analyzeBtn = document.querySelector('.analyzing');
+let shortWords = document.querySelector('.shortWords');
+let hideBtn = document.querySelector('.hide');
 
 const wordsList = WordsWidget();
 
@@ -10,18 +11,22 @@ let inputValue;
 
 function clickedAddBtn() {
   inputValue = inputElem.value;
-  console.log(inputValue);
+ // console.log(inputValue);
  let longestWords = wordsList.getLongestWords(inputValue);
-  console.log(longestWords);
+  //console.log(longestWords);
+  let getSizeOfSentence = wordsList.getLengthOfWords(inputValue);
+  //console.log(getSizeOfSentence);
+  lengthOfWords.innerHTML = getSizeOfSentence;
   displaySentence.innerHTML = longestWords;
+
   inputElem.value = '';
 }
 
-function clickedCounterBtn() {
-  let getSizeOfSentence = wordsList.getLengthOfWords(inputValue);
-  console.log(getSizeOfSentence);
-  lengthOfWords.innerHTML = getSizeOfSentence;
+function checkBoxClicked(){
+  let getShortWords = wordsList.hideShortWords(inputValue);
+  //console.log(getShortWords);
+  displaySentence.innerHTML = getShortWords;
 }
 
-addBtn.addEventListener('click', clickedAddBtn);
-counterBtn.addEventListener('click', clickedCounterBtn); 
+analyzeBtn.addEventListener('click', clickedAddBtn);
+hideBtn.addEventListener('click', checkBoxClicked)
