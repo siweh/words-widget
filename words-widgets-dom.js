@@ -26,6 +26,7 @@ function checkBoxClicked(){
   let getShortWords = wordsList.hideShortWords(inputValue);
   //console.log(getShortWords);
   displaySentence.innerHTML = getShortWords;
+  lengthOfWords.innerHTML = '';
 }
 
 analyzeBtn.addEventListener('click', clickedAddBtn);
