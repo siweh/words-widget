@@ -27,7 +27,7 @@ function WordsWidget() {
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
       //console.log(word);
-      if (word.length < 4){
+      if (word.length < 5){
         highlitedSentence = sentence.replace(
           word, '  '
         )
