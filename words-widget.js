@@ -1,10 +1,12 @@
 function WordsWidget() {
+  // let storeSentences = []
 
   function getLongestWords(sentence) {
     //console.log(sentence);
+    // let storing = storeSentences.fill(sentence);
+    // console.log(storing);
     let words = sentence.split(' ');
     //console.log(words);
-
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
       //console.log(word);
@@ -13,8 +15,8 @@ function WordsWidget() {
           word,
           `<mark> ${word} </mark>`
         );
-        //console.log(highlitedSentence);
         sentence = highlitedSentence;
+        console.log(sentence);
       }
     }
     return sentence;
@@ -29,13 +31,13 @@ function WordsWidget() {
       //console.log(word);
       if (word.length < 5){
         highlitedSentence = sentence.replace(
-          word, '  '
+          word, ' '
         )
        // console.log(highlitedSentence);
         sentence = highlitedSentence;
-        console.log(sentence);
-      }else {
-        highlitedSentence = ` <mark> ${sentence} </mark> `;
+        //console.log(sentence);
+      }else if(word.length > 5){
+        highlitedSentence = ` <mark style="background-color: red"> ${sentence} </mark> `;
         sentence = highlitedSentence;
       }
       

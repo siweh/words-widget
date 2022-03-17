@@ -2,8 +2,8 @@ let inputElem = document.querySelector('.analyze');
 let displaySentence = document.querySelector('.displayWords');
 let lengthOfWords = document.querySelector('.sentence');
 let analyzeBtn = document.querySelector('.analyzing');
-let shortWords = document.querySelector('.shortWords');
 let hideBtn = document.querySelector('.hide');
+let checkBox = document.querySelector(".shortWords");
 
 const wordsList = WordsWidget();
 
@@ -23,9 +23,17 @@ function clickedAddBtn() {
 }
 
 function checkBoxClicked(){
-  let getShortWords = wordsList.hideShortWords(inputValue);
-  //console.log(getShortWords);
+  console.log(checkBox.checked);
+  if(checkBox.checked){
+    let getShortWords = wordsList.hideShortWords(inputValue);
+  console.log(getShortWords);
   displaySentence.innerHTML = getShortWords;
+  }else {
+    let longestWords = wordsList.getLongestWords(inputValue);
+    console.log(longestWords);
+    displaySentence.innerHTML = longestWords;
+  }
+
   lengthOfWords.innerHTML = '';
 }
 
