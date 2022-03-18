@@ -13,10 +13,10 @@ function WordsWidget() {
       if (word.length > 4) {
         let highlitedSentence = sentence.replace(
           word,
-          `<mark> ${word} </mark>`
+          ` <mark style="background-color:yellow">${word}</mark> `
         );
         sentence = highlitedSentence;
-        console.log(sentence);
+        //console.log(sentence);
       }
     }
     return sentence;
@@ -24,6 +24,7 @@ function WordsWidget() {
 
   function hideShortWords(sentence) {
     let highlitedSentence;
+    let names; 
     let words = sentence.split(' ');
     //console.log(sentence);
     for (let i = 0; i < words.length; i++) {
@@ -33,14 +34,20 @@ function WordsWidget() {
         highlitedSentence = sentence.replace(
           word, ' '
         )
-       // console.log(highlitedSentence);
+      // console.log(highlitedSentence);
         sentence = highlitedSentence;
         //console.log(sentence);
-      }else if(word.length > 5){
-        highlitedSentence = ` <mark style="background-color: red"> ${sentence} </mark> `;
-        sentence = highlitedSentence;
+      }else {
+        names = sentence.split(' ');
+        for (let i = 0; i < names.length; i++) {
+          const longestWord = names[i];
+          //console.log(longestWord);
+          if(longestWord.length > 5){
+            highlitedSentence = ` <mark>${longestWord}</mark> `;
+            sentence = highlitedSentence;
+          }
+        }
       }
-      
     }
     return sentence;
   }
