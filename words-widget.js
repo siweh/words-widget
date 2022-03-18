@@ -1,10 +1,10 @@
 function WordsWidget() {
-  // let storeSentences = []
+  let storeSentences = []
 
   function getLongestWords(sentence) {
-    //console.log(sentence);
-    // let storing = storeSentences.fill(sentence);
-    // console.log(storing);
+    //console.log(sentence); 
+    storeSentences.push(sentence);
+    console.log(storeSentences);
     let words = sentence.split(' ');
     //console.log(words);
     for (let i = 0; i < words.length; i++) {
@@ -22,34 +22,32 @@ function WordsWidget() {
     return sentence;
   }
 
-  function hideShortWords(sentence) {
+  function hideShortWords(sentences) {
     let highlitedSentence;
     let names; 
-    let words = sentence.split(' ');
+    let words = sentences.split(' ');
     //console.log(sentence);
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
       //console.log(word);
       if (word.length < 5){
-        highlitedSentence = sentence.replace(
+        highlitedSentence = sentences.replace(
           word, ' '
         )
       // console.log(highlitedSentence);
-        sentence = highlitedSentence;
+        sentences = highlitedSentence;
         //console.log(sentence);
-      }else {
-        names = sentence.split(' ');
-        for (let i = 0; i < names.length; i++) {
-          const longestWord = names[i];
-          //console.log(longestWord);
-          if(longestWord.length > 5){
-            highlitedSentence = ` <mark>${longestWord}</mark> `;
-            sentence = highlitedSentence;
-          }
-        }
+      }else if(word.length > 5){
+            highlitedSentence = `<mark>${word}</mark> `;
+            console.log(highlitedSentence);
+            sentences = highlitedSentence;
       }
     }
-    return sentence;
+    return sentences;
+  }
+
+  function getLastEnteredSentences(){
+    return `${storeSentences} <br><br /> `;
   }
 
   function getLengthOfWords(sentence) {
@@ -66,6 +64,7 @@ function WordsWidget() {
   return {
     getLongestWords,
     getLengthOfWords,
-    hideShortWords
+    hideShortWords,
+    getLastEnteredSentences
   };
 }
