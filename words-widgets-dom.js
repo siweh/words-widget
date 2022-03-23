@@ -3,8 +3,6 @@ let displaySentence = document.querySelector('.displayWords');
 let lengthOfWords = document.querySelector('.sentence');
 let analyzeBtn = document.querySelector('.analyzing');
 let checkBox = document.querySelector(".shortWords");
-let lastEnteredSentencesBtn = document.querySelector('.previousSentences');
-let lastEnteredSentences = document.querySelector('.lastEnteredSentences');
 
 const wordsList = WordsWidget();
 
@@ -13,7 +11,7 @@ let inputValue;
 function clickedAddBtn() {
   inputValue = inputElem.value;
  // console.log(inputValue);
- let longestWords = wordsList.getLongestWords(inputValue);
+ let longestWords = wordsList.highliteLongWords(inputValue);
   //console.log(longestWords);
   let getSizeOfSentence = wordsList.getLengthOfWords(inputValue);
   //console.log(getSizeOfSentence);
@@ -30,7 +28,7 @@ function checkBoxClicked(){
  // console.log(getShortWords);
   displaySentence.innerHTML = getShortWords;
   }else {
-    let longestWords = wordsList.getLongestWords(inputValue);
+    let longestWords = wordsList.highliteLongWords(inputValue);
     //console.log(longestWords);
     displaySentence.innerHTML = longestWords;
   }
@@ -38,11 +36,5 @@ function checkBoxClicked(){
   lengthOfWords.innerHTML = '';
 }
 
-function showLastEnteredSentences(){
-  let showingLastEnteredSentences = wordsList.getLastEnteredSentences();
-  lastEnteredSentences.innerHTML = showingLastEnteredSentences;
-}
-
 analyzeBtn.addEventListener('click', clickedAddBtn);
 checkBox.addEventListener('change', checkBoxClicked)
-lastEnteredSentencesBtn.addEventListener('click', showLastEnteredSentences);
