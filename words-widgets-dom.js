@@ -3,6 +3,8 @@ let displaySentence = document.querySelector('.displayWords');
 let lengthOfWords = document.querySelector('.sentence');
 let analyzeBtn = document.querySelector('.analyzing');
 let checkBox = document.querySelector(".shortWords");
+let lastPreviousSentencesBtn = document.querySelector(".lastSentences");
+let previousSentences = document.querySelector(".previousSentences")
 
 const wordsList = WordsWidget();
 
@@ -34,6 +36,10 @@ function checkBoxClicked(){
   }
 
   lengthOfWords.innerHTML = '';
+}
+
+function showingLastSentences(){
+  let showLastSentences;
 }
 
 analyzeBtn.addEventListener('click', clickedAddBtn);
