@@ -4,7 +4,8 @@ let lengthOfWords = document.querySelector('.sentence');
 let analyzeBtn = document.querySelector('.analyzing');
 let checkBox = document.querySelector(".shortWords");
 let lastPreviousSentencesBtn = document.querySelector(".lastSentences");
-let previousSentences = document.querySelector(".previousSentences")
+let previousSentences = document.querySelector(".previousSentences");
+
 
 const wordsList = WordsWidget();
 
@@ -39,8 +40,10 @@ function checkBoxClicked(){
 }
 
 function showingLastSentences(){
-  let showLastSentences;
+  let showLastSentences = wordsList.showPreviousSentences();
+  previousSentences.innerHTML = `<a> ${showLastSentences} </a>`;
 }
 
 analyzeBtn.addEventListener('click', clickedAddBtn);
 checkBox.addEventListener('change', checkBoxClicked)
+lastPreviousSentencesBtn.addEventListener('click', showingLastSentences);

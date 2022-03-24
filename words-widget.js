@@ -32,6 +32,10 @@ function WordsWidget() {
     return updatedSentence;
   }
 
+  function showPreviousSentences(){
+    return storeSentences.join("<br />");
+  }
+
   function getLengthOfWords(sentence) {
     //console.log(sentence);
     let lengthOfSentence = sentence.split(' ').length;
@@ -46,6 +50,7 @@ function WordsWidget() {
   return {
     highliteLongWords,
     getLengthOfWords,
-    hideShortWords
+    hideShortWords,
+    showPreviousSentences
   };
 }
