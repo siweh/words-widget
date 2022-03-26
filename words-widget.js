@@ -1,10 +1,19 @@
-function WordsWidget() {
-  let storeSentences = []
+function WordsWidget(sentences) {
+  let storeSentences = [];
+  let errorMessage = "";
 
   function highliteLongWords(sentence) {
-    storeSentences.push(sentence);
-    //console.log(storeSentences);
-    let words = sentence.split(' ');
+    if (storeSentences.includes(sentence)){
+      errorMessage = 'Sentence already exists';
+    }else{
+      storeSentences.push(sentence);
+    }
+
+    if (sentence === ''){
+      errorMessage = 'Please enter a sentence';
+    }
+
+    const words = sentence.split(' ');
     //console.log(words);
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
@@ -13,10 +22,12 @@ function WordsWidget() {
         words[i] = ` <mark style="background-color:yellow">${word}</mark> `;
       }
     }
+    
     let updatedSentence = words.join(" ")
     return updatedSentence;
   }
 
+  //I am writing sentence here
   function hideShortWords(sentence) {
     let words = sentence.split(' ');
     console.log(words);
@@ -33,9 +44,12 @@ function WordsWidget() {
   }
 
   function showPreviousSentences(){
-    return storeSentences.join("<br />");
+    return storeSentences;
   }
 
+  function getErrorMessages(){
+    return errorMessage;
+  }
   function getLengthOfWords(sentence) {
     //console.log(sentence);
     let lengthOfSentence = sentence.split(' ').length;
@@ -44,13 +58,14 @@ function WordsWidget() {
       lengthOfSentence = 0;
     }
       
-    return `There are:  ${lengthOfSentence} words`;
+    return `Number of words in a sentence:  ${lengthOfSentence}`;
   }
 
   return {
     highliteLongWords,
     getLengthOfWords,
     hideShortWords,
+    getErrorMessages,
     showPreviousSentences
   };
 }

@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/simple-grid-min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script type="text/x-template" class="wordList">
+      {{#each storedSentences}}
+        {{this}}
+      {{/each}}
+      {{displayErrors}}
+    </script>
     <title>Words widget</title>
   </head>
   <body>
@@ -43,13 +50,18 @@
       </div>
       <div class="row">
         <div style="text-align: center" class="col-12">
+          <span class="errorMsg"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div style="text-align: center" class="col-12">
           <span class="displayWords"></span>
         </div>
       </div>
       <br />
       <div class="row">
         <div style="text-align: center" class="col-12">
-          <span class="sentence"></span>
+          <span class="lengthOfWords"></span>
         </div>
       </div>
       <div class="row">
@@ -60,6 +72,7 @@
       </div>
     </div>
   </body>
+  <script src="./localStorage.js"></script>
   <script src="./words-widget.js"></script>
   <script src="./words-widgets-dom.js"></script>
 </html>

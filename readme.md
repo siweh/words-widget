@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/siweh/words-widget.svg?branch=master)](https://app.travis-ci.com/siweh/words-widget)

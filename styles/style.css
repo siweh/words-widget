@@ -16,6 +16,10 @@ body {
   flex-direction: column;
 }
 
+.errorMsg{
+  color: red;
+}
+
 mark{
   background-color: orange;
 }
