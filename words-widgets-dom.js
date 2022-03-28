@@ -6,6 +6,7 @@ let checkBox = document.querySelector(".shortWords");
 let sentences = document.querySelector('.wordList').innerHTML;
 let lastPreviousSentencesBtn = document.querySelector(".lastSentences");
 let previousSentences = document.querySelector(".previousSentences");
+let showDetailsOfSentences = document.querySelector('.detailsOfSentences');
 
 var theTemplate = Handlebars.compile(sentences);
 
@@ -19,7 +20,7 @@ function clickedAddBtn() {
   inputValue = inputElem.value;
  // console.log(inputValue);
  let longestWords = wordsList.highliteLongWords(inputValue);
-  console.log(longestWords);
+  //console.log(longestWords);
   let getSizeOfSentence = wordsList.getLengthOfWords(inputValue);
   //console.log(getSizeOfSentence);
   lengthOfWords.innerHTML = getSizeOfSentence;
@@ -56,9 +57,13 @@ function checkBoxClicked(){
 
 function showingLastSentences(){
   let showLastSentences = wordsList.showPreviousSentences();
-  //console.log(showLastSentences);
+  let showDetails = wordsList.getDetailsOfSentences();
   document.querySelector(".previousSentences").innerHTML = theTemplate({
     storedSentences: showLastSentences,
+  });
+  
+  showDetailsOfSentences.innerHTML = theTemplate({
+    storedSentences: showDetails,
   });
 }
 

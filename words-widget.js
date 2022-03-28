@@ -47,6 +47,14 @@ function WordsWidget(sentences) {
     return storeSentences;
   }
 
+  function getDetailsOfSentences(){
+    let detailsOfSentences = storeSentences.forEach(sentence => {
+      console.log(sentence);
+      sentence = 'Last entered now';
+      return sentence;
+    });
+    return detailsOfSentences;
+  }
   function getErrorMessages(){
     return errorMessage;
   }
@@ -66,6 +74,7 @@ function WordsWidget(sentences) {
     getLengthOfWords,
     hideShortWords,
     getErrorMessages,
+    getDetailsOfSentences,
     showPreviousSentences
   };
 }
