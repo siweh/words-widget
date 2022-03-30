@@ -11,10 +11,14 @@ let showDetailsOfSentences = document.querySelector('.detailsOfSentences');
 var theTemplate = Handlebars.compile(sentences);
 
 let storeEnteredSentences = getStoredSentences();
+console.log(storeEnteredSentences);
 const wordsList = WordsWidget(storeEnteredSentences);
 
 let inputValue;
 
+document.querySelector(".previousSentences").innerHTML = theTemplate({
+  storedSentences: storeEnteredSentences,
+});
 
 function clickedAddBtn() {
   inputValue = inputElem.value;

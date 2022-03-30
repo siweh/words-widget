@@ -1,5 +1,6 @@
 function WordsWidget(sentences) {
-  let storeSentences = [];
+  let storeSentences = sentences !== null ? sentences : [];
+  console.log(storeSentences);
   let errorMessage = "";
 
   function highliteLongWords(sentence) {
